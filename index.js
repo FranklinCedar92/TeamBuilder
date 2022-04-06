@@ -52,6 +52,9 @@ const addEmployee =() => {
                       </body>
                     </html>`
                     console.log(HTML);
+                    fs.writeFile("index.html", HTML,(err)=>{
+                       if (err) throw err;
+                    })
                 }
             })
 }
