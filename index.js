@@ -99,7 +99,7 @@ const questions = () => {
     });
 };
 
-const addManager = (name, id, email,role) => {
+const addManager = (name, id, email, role) => {
     inquirer.prompt([
         {
             type: 'input',
@@ -109,20 +109,21 @@ const addManager = (name, id, email,role) => {
     ])
     .then(response => {
         let newManager = new Manager(name, id, email, response.managerOffice);
-            managerHTML += `<div class="card">
-             <div class="card-header">
-               ${newManager.name}
-               <h3>Manager</h3>
-               <h4>Office #${newManager.officeNumber}</h4>
-             </div>
-             <div class="card-body">
-               <blockquote class="blockquote mb-0">
-                 <p>Employee ID: ${newManager.id}.</p>
-                 <footer class="blockquote-footer">email: <a href="mailto://${newManager.email}">${newManager.email}</a></footer>
-               </blockquote>
-             </div>
-           </div>`
+          managerHTML += `<div class="card">
+              <div class="m_title m_bg-primary">
+                <h3>Team Manager</h3>
+              </div>
+              <div class="info">
+                <p>Name: ${newManager.name}</p>
+                <p>Email:<a href="mailto://${newManager.email}">${newManager.email}</a></p>
+                <p>ID: ${newManager.id}</p>
+                <p>Office: ${newManager.officeNumber}</p>
+              </div>
+            </div>
+            `;
            addEmployee();
+
+
     })
 };
 
@@ -137,18 +138,17 @@ const addEngineer = (name, id, email, role) => {
     .then(response => {
         let newEngineer = new Engineer(name, id, email, response.engineerGithub);
             engineerHTML += `<div class="card">
-             <div class="card-header">
-               ${newEngineer.name}
-               <h3>Engineer</h3>
-               <h4>GitHub: ${newEngineer.github}</h4>
-             </div>
-             <div class="card-body">
-               <blockquote class="blockquote mb-0">
-                 <p>Employee ID: ${newEngineer.id}.</p>
-                 <footer class="blockquote-footer">email: <a href="mailto://${newEngineer.email}">${newEngineer.email}</a></footer>
-               </blockquote>
-             </div>
-           </div>`
+            <div class="m_title m_bg-primary">
+              <h3>Engineer</h3>
+            </div>
+            <div class="info">
+              <p>Name: ${newEngineer.name}</p>
+              <p>Email:<a href="mailto://${newEngineer.email}">${newManager.email}</a></p>
+              <p>ID: ${newEngineer.id}</p>
+              <p>GitHub: ${newEngineer.engineerGithub}</p>
+            </div>
+          </div>
+          `;
            addEmployee();
     })
 };
@@ -164,18 +164,17 @@ const addIntern = (name, id, email, role) => {
     .then(response => {
         let newIntern = new Intern(name, id, email, response.internSchool);
             InternHTML += `<div class="card">
-             <div class="card-header">
-               ${newIntern.name}
-               <h3>Intern</h3>
-               <h4>School: ${newIntern.school}</h4>
-             </div>
-             <div class="card-body">
-               <blockquote class="blockquote mb-0">
-                 <p>Employee ID: ${newIntern.id}.</p>
-                 <footer class="blockquote-footer">email: <a href="mailto://${newIntern.email}">${newIntern.email}</a></footer>
-               </blockquote>
-             </div>
-           </div>`
+              <div class="m_title m_bg-primary">
+                <h3>Team Manager</h3>
+              </div>
+              <div class="info">
+                <p>Name: ${newIntern.name}</p>
+                <p>Email:<a href="mailto://${newIntern.email}">${newManager.email}</a></p>
+                <p>ID: ${newIntern.id}</p>
+                <p>School: ${newIntern.internSchool}</p>
+              </div>
+            </div>
+            `;
            addEmployee();
     })
 };

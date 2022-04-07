@@ -1,5 +1,10 @@
-var HTML = `<!doctype html>
-<html lang="en">
+module.exports = templateHTML => {
+    const {} = templateHTML; 
+    
+    return `
+    <!doctype html>
+    <html lang="en">
+
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -10,18 +15,18 @@ var HTML = `<!doctype html>
 
         <title>Team Builder</title>
     </head>
+
     <body>
-        <div>
-            <header>
-                <h1 class="m_header m_container-fluid m_center m_bg-secondary>Team Organizer</h1>
-            </header>
-        </div>
+        <header>
+            <h1 class="m_header m_container-fluid m_center m_bg-secondary>Team Organizer</h1>
+        </header>
         <!-- Employee Cards -->
         <div>
-        ${managerCard}
-        ${engineerCard}
-        ${internCard}
+        $//{managerCard}
+        $//{engineerCard}
+        $//{internCard}
         </div>
     </body>
 </html>
 `
+}
