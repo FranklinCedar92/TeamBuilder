@@ -81,8 +81,8 @@ const addManager = (name, id, email, role) => {
     ])
     .then(response => {
         let newManager = new Manager(name, id, email, response.managerOffice);
-          managerHTML += `<div class="card">
-              <div class="m_title m_bg-primary">
+          managerHTML += `<div class="card col-3">
+              <div class="title bg-primary">
                 <h3>Team Manager</h3>
               </div>
               <div class="info">
@@ -109,8 +109,8 @@ const addEngineer = (name, id, email, role) => {
     ])
     .then(response => {
         let newEngineer = new Engineer(name, id, email, response.engineerGithub);
-            engineerHTML += `<div class="card">
-            <div class="m_title m_bg-primary">
+            engineerHTML += `<div class="card col-3">
+            <div class="title bg-warning">
               <h3>Engineer</h3>
             </div>
             <div class="info">
@@ -135,13 +135,13 @@ const addIntern = (name, id, email, role) => {
     ])
     .then(response => {
         let newIntern = new Intern(name, id, email, response.internSchool);
-            InternHTML += `<div class="card">
-              <div class="m_title m_bg-primary">
+            internHTML += `<div class="card col-3">
+              <div class="title bg-success">
                 <h3>Team Manager</h3>
               </div>
               <div class="info">
                 <p>Name: ${newIntern.name}</p>
-                <p>Email:<a href="mailto://${newIntern.email}">${newManager.email}</a></p>
+                <p>Email:<a href="mailto://${newIntern.email}">${newIntern.email}</a></p>
                 <p>ID: ${newIntern.id}</p>
                 <p>School: ${newIntern.internSchool}</p>
               </div>

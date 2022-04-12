@@ -13,10 +13,18 @@ module.exports =(managerHTML,engineerHTML,internHTML) => {
         <title>Team Builder</title>
       </head>
       <body>
-        <h1>Team Builder</h1>
-        ${managerHTML}
-        ${engineerHTML}
-        ${internHTML}
+        <h1 class="bg-info">Team Builder</h1>
+        <div class="container">
+          <div class="managerRow row">
+            ${managerHTML}
+          </div>
+          <div class="engineerRow row">
+            ${engineerHTML}
+          </div>
+          <div class="internRow row">
+            ${internHTML}
+          </div>
+        </div>
     
         <!-- Optional JavaScript; choose one of the two! -->
     
