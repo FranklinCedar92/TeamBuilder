@@ -13,44 +13,16 @@ const addEmployee =() => {
         inquirer.prompt([
             {
                 type: 'confirm',
-                name: 'confirmAddEmplyee',
+                name: 'confirmAddEmployee',
                 message: 'Would you like to add an employee?',
                 default: false
             }]).then(function (response){
+                console.log(response.confirmAddEmployee)
                 if (response.confirmAddEmployee) {
                     questions() //even if Yes, this is writing the file
                 }
                 else {
-                    var HTML = `<!doctype html>
-                    <html lang="en">
-                      <head>
-                        <!-- Required meta tags -->
-                        <meta charset="utf-8">
-                        <meta name="viewport" content="width=device-width, initial-scale=1">
-                    
-                        <!-- Bootstrap CSS -->
-                        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-                    
-                        <title>Team Builder</title>
-                      </head>
-                      <body>
-                        <h1>Team Builder</h1>
-                        ${managerHTML}
-                        ${engineerHTML}
-                        ${internHTML}
-                    
-                        <!-- Optional JavaScript; choose one of the two! -->
-                    
-                        <!-- Option 1: Bootstrap Bundle with Popper -->
-                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-                    
-                        <!-- Option 2: Separate Popper and Bootstrap JS -->
-                        <!--
-                        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-                        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-                        -->
-                      </body>
-                    </html>`
+                   var HTML= generatePage(managerHTML, engineerHTML, internHTML)
                     console.log(HTML);
                     fs.writeFile("index.html", HTML,(err)=>{
                        if (err) throw err;
@@ -143,7 +115,7 @@ const addEngineer = (name, id, email, role) => {
             </div>
             <div class="info">
               <p>Name: ${newEngineer.name}</p>
-              <p>Email:<a href="mailto://${newEngineer.email}">${newManager.email}</a></p>
+              <p>Email:<a href="mailto://${newEngineer.email}">${newEngineer.email}</a></p>
               <p>ID: ${newEngineer.id}</p>
               <p>GitHub: ${newEngineer.engineerGithub}</p>
             </div>
